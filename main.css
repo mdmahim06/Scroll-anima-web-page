@@ -1,0 +1,516 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+input {
+  font-size: large;
+  padding: 10px 20px;
+  border-color: white;
+  background: transparent;
+  border-radius: 5px;
+  outline: none;
+  font-family: cursive;
+  color: white;
+}
+
+input::-moz-placeholder {
+  text-transform: capitalize;
+  color: #ddd;
+}
+
+input::placeholder {
+  text-transform: capitalize;
+  color: #ddd;
+}
+
+@media screen and (max-width: 767px) {
+  .sticky-header {
+    position: static !important;
+    border-color: none !important;
+    background-color: none !important;
+    animation: none !important;
+  }
+  header {
+    width: 100%;
+    flex-direction: column !important;
+    justify-content: start !important;
+    align-items: start !important;
+    text-align: center;
+  }
+  header .respornsive-header-menus {
+    display: flex;
+    font-size: 2rem;
+    position: absolute;
+    width: 100%;
+    justify-content: end;
+  }
+  header .respornsive-header-menus i {
+    margin: 20px 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.8s;
+  }
+  header .icon-click {
+    color: green !important;
+    transform: rotate(360deg);
+  }
+  header .logo_div {
+    width: 100%;
+  }
+  header .menu {
+    width: 100% !important;
+    transition: all 0.4s;
+    transform: scaleY(0) !important;
+    transform-origin: top;
+  }
+  header .menu ul {
+    padding: 6px 0 !important;
+    flex-direction: column !important;
+    background: white !important;
+    width: 100% !important;
+    text-align: center;
+  }
+  header .menu ul li {
+    width: 100% !important;
+    margin-left: 0px !important;
+    margin: 5px 0;
+  }
+  header .menu-anima {
+    transform: scaleY(1) !important;
+  }
+  .about {
+    width: 100% !important;
+  }
+  .about .row {
+    display: flex;
+    flex-direction: column !important;
+    margin: 0 0 !important;
+  }
+  .about .row .col {
+    margin: 15px 0 !important;
+  }
+  .form-contact {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .form-contact .div-form {
+    width: 100% !important;
+    text-align: center;
+    justify-content: start !important;
+    display: block;
+    padding: 20px 25px;
+  }
+  .form-contact .div-form form .contact-form-input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form-contact .div-form form .contact-form-input-group input {
+    font-size: 16px;
+    width: 48% !important;
+  }
+  .form-contact .div-form form .email-or-pwd-input-groups {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-contact .div-form form .email-or-pwd-input-groups input {
+    margin: 0.5rem 0;
+  }
+  .form-contact .div-form form .email-or-pwd-input-groups input[type=submit] {
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 1s;
+  }
+  .form-contact .div-form form .email-or-pwd-input-groups input[type=submit]:hover {
+    background: #ddd;
+    color: black;
+  }
+  .footer .content .container {
+    flex-direction: column !important;
+  }
+}
+@media screen and (max-width: 567px) {
+  .footer .content .container {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 3.5rem;
+  }
+}
+@keyframes header-sticky-animation {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+@keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
+}
+header {
+  background: transparent;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -100px;
+  z-index: 100;
+}
+header .logo_div img {
+  width: 80px;
+  border-radius: 100%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+header .menu ul {
+  display: flex;
+  list-style: none;
+}
+header .menu ul li {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+header .menu ul li a {
+  color: black;
+  font-size: larger;
+  text-decoration: none;
+  font-family: cursive;
+  text-transform: capitalize;
+}
+header .menu ul li:hover {
+  background: rgba(0, 0, 0, 0.389);
+}
+header .menu ul li:hover a {
+  color: white;
+}
+
+.respornsive-header-menus {
+  display: none;
+}
+
+.sticky-header {
+  position: fixed;
+  border-color: red;
+  background-color: #0ad3bf;
+  top: 0;
+  left: 0;
+  animation: header-sticky-animation 1s forwards;
+}
+
+.animated-section {
+  background: url("https://images.pexels.com/photos/693776/pexels-photo-693776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.animated-section h1 {
+  font-size: 10rem;
+  font-weight: bold;
+  font-family: Cursive;
+  color: black;
+  text-shadow: 0 0 15px red;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.animated-section .anima-title {
+  font-size: xx-large;
+  font-family: cursive;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.animated-section .anima-title .anima-txt {
+  text-shadow: 0 0 5px red, 0 0 5px red, 0 0 5px red;
+}
+.animated-section .btn-groups {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 260px;
+}
+.animated-section .btn-groups .btn {
+  font-size: x-large;
+  font-family: fantasy;
+  font-weight: 100;
+  text-transform: capitalize;
+  background: rgba(0, 0, 0, 0.289);
+  padding: 10px 35px;
+  border-radius: 15px;
+  border: 2px solid rgba(0, 255, 157, 0.271);
+  color: white;
+  cursor: pointer;
+  transition: all 0.8s;
+}
+.animated-section .btn-groups .btn:hover {
+  border: 2px solid rgb(0, 255, 157);
+  background: rgb(0, 0, 0);
+  transition: all 0.6s;
+  box-shadow: 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
+}
+
+section.about {
+  background: url("https://images.pexels.com/photos/800005/pexels-photo-800005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  padding: 20px 50px;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  display: table;
+}
+section.about h1.title {
+  font-family: cursive;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  color: white;
+  margin-bottom: 50px;
+}
+section.about h1.title::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  margin: 50px -150px;
+}
+section.about .row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px 0;
+}
+section.about .row .col {
+  background: #ddd;
+  margin: 0 20px;
+  text-align: center;
+  padding: 20px 25px;
+  transition: all 0.5s;
+  border-radius: 8px;
+}
+section.about .row .col .card span.icon {
+  font-size: xx-large;
+  font-family: cursive;
+  cursor: pointer;
+  font-weight: bolder;
+  background: white;
+  border-radius: 100%;
+  padding: 10px;
+  display: block;
+  width: 3.5rem;
+  color: black !important;
+  margin: auto;
+}
+section.about .row .col .card h1.card-title {
+  font-family: cursive;
+}
+section.about .row .col .card p {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+section.about .row .col:hover {
+  transform: scaleX(1.1);
+  background: #333;
+  color: white;
+  box-shadow: 0 0 20px #222, 0 0 20px #222, 0 0 20px #222, 0 0 20px #222;
+}
+
+.form-contact {
+  background: url("https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=400");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 80vh;
+  padding: 3rem 5rem;
+}
+.form-contact h1.title {
+  font-family: cursive;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  color: white;
+  margin-bottom: 50px;
+}
+.form-contact h1.title::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  margin: 50px -150px;
+}
+.form-contact .div-form {
+  width: 80vw;
+  height: 40vh;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  border-radius: 10px;
+  transition: all 0.8s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-contact .div-form form .contact-form-input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-contact .div-form form .contact-form-input-group input {
+  font-size: 16px;
+}
+.form-contact .div-form form .email-or-pwd-input-groups {
+  display: flex;
+  flex-direction: column;
+}
+.form-contact .div-form form .email-or-pwd-input-groups input {
+  margin: 0.5rem 0;
+}
+.form-contact .div-form form .email-or-pwd-input-groups input[type=submit] {
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 1s;
+}
+.form-contact .div-form form .email-or-pwd-input-groups input[type=submit]:hover {
+  background: #ddd;
+  color: black;
+}
+.form-contact .div-form:hover {
+  box-shadow: 0 0 30px red, 0 0 30px red;
+}
+
+body .footer {
+  z-index: 1;
+  --footer-background: red;
+  display: grid;
+  position: relative;
+  grid-area: footer;
+  min-height: 12rem;
+}
+
+body .footer .bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url("#blob");
+}
+
+body .footer .bubbles .bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: var(--footer-background);
+  border-radius: 100%;
+  animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  transform: translate(-50%, 100%);
+}
+
+body .footer .content {
+  padding: 6rem 1rem 2rem;
+  background: var(--footer-background);
+  z-index: 2;
+}
+
+.footer .content .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer .content .container .col img.footer-logo {
+  width: 180px;
+  border-radius: 100%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+.footer .content .container .footer-about {
+  width: 400px;
+}
+.footer .content .container .footer-about h1.title {
+  font-size: xx-large;
+  font-family: cursive;
+}
+.footer .content .container .footer-about p {
+  font-family: cursive;
+}
+.footer .content .container .footer-about p span.footer-about-txt-anima {
+  cursor: pointer;
+  color: blue;
+  font-weight: bolder;
+  border-bottom: 1px dashed black;
+}
+.footer .content .container .footer-menu ul {
+  list-style: none;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+          user-select: none !important;
+}
+.footer .content .container .footer-menu ul li {
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin: 5px 0;
+  cursor: pointer;
+  color: black;
+  transition: all 0.5s;
+}
+.footer .content .container .footer-menu ul li a {
+  color: black;
+  font-size: large;
+  font-family: cursive;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.footer .content .container .footer-menu ul li:hover {
+  background: #333;
+}
+.footer .content .container .footer-menu ul li:hover a {
+  color: white;
+}/*# sourceMappingURL=main.css.map */
